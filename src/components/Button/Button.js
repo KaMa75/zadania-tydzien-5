@@ -2,7 +2,7 @@ import React from 'react';
 
 import './Button.scss';
 
-function Button({children}) {
+function Button({children, outlined}) {
     return (
         <button className={}>
             {children}
