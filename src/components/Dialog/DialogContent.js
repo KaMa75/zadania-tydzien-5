@@ -2,7 +2,7 @@ import React from 'react';
 
 function DialogContent({children}) {
     return (
-        <div>
+        <div className="modal--content">
             <p>
                 {children}
             </p>

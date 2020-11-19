@@ -1,8 +1,10 @@
 import React from 'react';
 
+import './Button.scss';
+
 function Button({children}) {
     return (
-        <button>
+        <button className={}>
             {children}
         </button>
     );

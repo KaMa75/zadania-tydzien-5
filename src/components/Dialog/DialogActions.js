@@ -2,7 +2,7 @@ import React from 'react';
 
 function DialogActions({children}) {
     return (
-        <div>
+        <div className="modal--actions">
             {children}
         </div>
     );

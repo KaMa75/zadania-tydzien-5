@@ -2,7 +2,7 @@ import React from 'react';
 
 function DialogTitle({children}) {
     return (
-        <div>
+        <div className="modal--title">
             <h2>
                 {children}
             </h2>

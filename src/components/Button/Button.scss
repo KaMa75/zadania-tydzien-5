@@ -1,0 +1,11 @@
+button {
+    background-color: inherit;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 18px;
+
+    &:hover {
+        opacity: 0.75;
+    }
+}

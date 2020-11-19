@@ -4,8 +4,10 @@ import './Dialog.scss';
 
 function Dialog({children}) {
     return (
-        <div className="Dialog">
-            {children}
+        <div className="modal-wrapper">
+            <div className="modal">
+                {children}
+            </div>
         </div>
     );
 }

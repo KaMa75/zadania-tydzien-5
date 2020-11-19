@@ -14,8 +14,10 @@ const modalContent = {
   cancelBtn: 'No, thanks'
 }
 
+
 function App() {
-  return (
+
+  const dialog = (
     <Dialog>
       <DialogTitle>{modalContent.header}</DialogTitle>
       <DialogContent>{modalContent.content}</DialogContent>
@@ -30,6 +32,13 @@ function App() {
         </>
       </DialogActions>
     </Dialog>
+  );
+
+  return (
+    <>
+      <Button outlined>Otwórz dialog</Button>
+      {dialog}
+    </>
   );
 }
 
