@@ -5,6 +5,12 @@ button {
     cursor: pointer;
     font-size: 18px;
 
+    &.outlined {
+        border: 1px solid darkgray;
+        border-radius: 8px;
+        padding: 8px 12px;
+    }
+
     &:hover {
         opacity: 0.75;
     }

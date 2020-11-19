@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 import Dialog from './components/Dialog';
 import {DialogTitle, DialogContent, DialogActions} from './components/Dialog';
@@ -11,11 +11,36 @@ const modalContent = {
   Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
   Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.`,
   acceptBtn: 'OK',
-  cancelBtn: 'No, thanks'
+  cancelBtn: 'Cancel'
 }
+
+const snackbarMessages = {
+  accepted: 'Zaakceptowano',
+  cancelled: 'Anulowano'
+}
+
+const snackbarTime = 2;
 
 
 function App() {
+
+  const initSnackbar = {
+    show: false,
+    status: null
+  };
+
+  const [showModal, setModal] = useState(false);
+  const [snackbar, setSnackbar] = useState(initSnackbar);
+
+  const handleAcceptClick = () => {
+    setModal(false);
+    console.log('ok');
+  }
+
+  const handleCancelClick = () => {
+    setModal(false);
+    console.log('cancel');
+  }
 
   const dialog = (
     <Dialog>
@@ -23,10 +48,14 @@ function App() {
       <DialogContent>{modalContent.content}</DialogContent>
       <DialogActions>
         <>
-          <Button>
+          <Button
+            onClick={handleCancelClick}
+          >
             {modalContent.cancelBtn}
           </Button>
-          <Button>
+          <Button
+            onClick={handleAcceptClick}
+          >
           {modalContent.acceptBtn}
           </Button>
         </>
@@ -36,8 +65,7 @@ function App() {
 
   return (
     <>
-      <Button outlined>Otwórz dialog</Button>
-      {dialog}
+      {showModal ? dialog : <Button outlined onClick={()=>setModal(true)}>Otwórz dialog</Button>}
     </>
   );
 }
