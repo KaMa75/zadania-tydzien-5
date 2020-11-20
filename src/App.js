@@ -3,6 +3,8 @@ import React, {useState} from 'react';
 import Dialog from './components/Dialog';
 import {DialogTitle, DialogContent, DialogActions} from './components/Dialog';
 import Button from './components/Button';
+import Snackbar from './components/Snackbar';
+
 import './App.css';
 
 const modalContent = {
@@ -19,27 +21,22 @@ const snackbarMessages = {
   cancelled: 'Anulowano'
 }
 
-const snackbarTime = 2;
+const snackbarDisplayTime = 3000;
 
 
 function App() {
 
-  const initSnackbar = {
-    show: false,
-    status: null
-  };
-
   const [showModal, setModal] = useState(false);
-  const [snackbar, setSnackbar] = useState(initSnackbar);
+  const [snackbarStatus, setSnackbar] = useState(null);
 
   const handleAcceptClick = () => {
     setModal(false);
-    console.log('ok');
+    setSnackbar('accepted');
   }
 
   const handleCancelClick = () => {
     setModal(false);
-    console.log('cancel');
+    setSnackbar('cancelled');
   }
 
   const dialog = (
@@ -66,6 +63,13 @@ function App() {
   return (
     <>
       {showModal ? dialog : <Button outlined onClick={()=>setModal(true)}>Otwórz dialog</Button>}
+      <Snackbar
+        displayTime={snackbarDisplayTime}
+        snackbarPosition="right-top"
+        snackbarStatus={snackbarStatus}
+      >
+        {snackbarStatus && snackbarMessages[snackbarStatus]}
+      </Snackbar>
     </>
   );
 }
